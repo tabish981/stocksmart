@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Styles for Invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-invoice,
+  #printable-invoice * {
+    visibility: visible;
+  }
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
